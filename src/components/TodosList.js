@@ -1,15 +1,16 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-export default function TodosList({ todos, handleChangeProps, deleteTodoProps }) {
+export default function TodosList({ todos, handleChangeProps, deleteTodoProps, handleDrag, handleDrop, allowDrop }) {
   return (
-    <div>
+    <div onDrop={handleDrop} onDragOver={allowDrop}>
       {todos.map(todo => (
         <TodoItem
           key={todo.id}
           todo={todo}
           handleChangeProps={handleChangeProps}
           deleteTodoProps={deleteTodoProps}
+          handleDrag={handleDrag}
         />
       ))}
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TodoItem({ todo, handleChangeProps, deleteTodoProps }) {
+export default function TodoItem({ todo, handleChangeProps, deleteTodoProps, handleDrag }) {
   const completedStyle = {
     fontStyle: "italic",
     color: "#d35e0f",
@@ -11,7 +11,7 @@ export default function TodoItem({ todo, handleChangeProps, deleteTodoProps }) {
   const { completed, id, title } = todo;
 
   return (
-    <li className="todo-item">
+    <li className="todo-item" draggable={true} onDragStart={handleDrag} id={id}>
       <input
         type="checkbox"
         checked={completed}
