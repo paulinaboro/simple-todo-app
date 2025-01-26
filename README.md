@@ -1,35 +1,25 @@
-## React Tutorial – The Beginners Guide to Learning React JS in 2020
+### Coding Task for Subscript ✅
 
-[To follow this React tutorial](https://ibaslogic.com/blog/react-tutorial-for-beginners/)
+- Simple **React App** which displays to do list
+- User can add a new todo 
+- User can remove a todo 
+- User can drag & drop tasks - implementation built in using native html drag & drop feature
 
-### Clone the starter project
+### Installation
 
-You can download or clone this project by running this command from your terminal:
+You can clone the repo and run command:
 
-```
-git clone https://github.com/Ibaslogic/simple-todo-app
-```
+`$ npm install` from the project root folder
 
-This will create a directory in the name of the project folder.
+If the project will not run automatically you can go to:
+http://localhost:3000/
 
-Once you have the project files and folders bootstrapped, open it with your text editor.
+To start the app: 
+`$ npm start` 
 
-Next, switch inside the project directory and run:
+To run the cypress test: 
+`$ npm run cy:open` 
 
-```
-npm install
-```
 
-This will install all the necessary dependencies in the local `node_modules` folder.
 
-Finally, start your development server by running:
 
-```
-npm start
-```
-
-You should see the app in your browser address bar at [http://localhost:3000](http://localhost:3000)
-
-run the cypress test
-
-npm run cy:open
