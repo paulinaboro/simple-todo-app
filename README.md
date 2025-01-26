@@ -21,6 +21,4 @@ To run the cypress test:
 `$ npm run cy:open` 
 
 
-
-
-[![Alt text](https://via.placeholder.com/600x300.png?text=Click+to+Watch+Video)](https://iframe.mediadelivery.net/play/374847/cfeee4ca-27a1-4852-ac5f-053f34bb028f)
+[![Video Thumbnail](https://vz-9e65ad5a-432.b-cdn.net/cfeee4ca-27a1-4852-ac5f-053f34bb028f/thumbnail.jpg)](https://iframe.mediadelivery.net/play/374847/cfeee4ca-27a1-4852-ac5f-053f34bb028f)
