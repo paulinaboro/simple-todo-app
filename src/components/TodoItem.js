@@ -11,7 +11,7 @@ export default function TodoItem({ todo, handleChangeProps, deleteTodoProps, han
   const { completed, id, title } = todo;
 
   return (
-    <li className="todo-item" draggable={true} onDragStart={handleDrag} id={id}>
+    <li data-testid="todo-item" className="todo-item" draggable={true} onDragStart={handleDrag} id={id}>
       <input
         type="checkbox"
         checked={completed}

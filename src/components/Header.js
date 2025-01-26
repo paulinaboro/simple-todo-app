@@ -7,7 +7,7 @@ const Header = () => {
   };
   return (
     <header style={headerStyle}>
-      <h1 style={{ fontSize: "25px", marginBottom: "15px" }}>
+      <h1 style={{ fontSize: "25px", marginBottom: "15px" }} data-testid="web-app-title">
         Simple Todo App
       </h1>
       <p style={{ fontSize: "19px" }}>

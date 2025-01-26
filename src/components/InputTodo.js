@@ -17,6 +17,7 @@ export default function InputTodo({ addTodoProps }) {
   return (
     <form onSubmit={handleSubmit} className="form-container">
       <input
+        data-testid="to-do-input"
         type="text"
         className="input-text"
         placeholder="Add todo..."
@@ -24,7 +25,7 @@ export default function InputTodo({ addTodoProps }) {
         name="title"
         onChange={onChange}
       />
-      <input type="submit" className="input-submit" value="Submit" />
+      <input data-testid="to-do-submit-button" type="submit" className="input-submit" value="Submit" />
     </form>
   );
 }
