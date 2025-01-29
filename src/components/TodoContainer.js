@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TodosList from "./TodosList";
 import Header from "./Header";
-import InputTodo from "./InputTodo";
+import InputTodos from "./InputTodo";
 import DragDropZone from "./DragDropZone/DragDropZone";
 // import uuid from "uuid";
 import { v4 as uuidv4 } from "uuid";
@@ -10,54 +10,104 @@ export default function TodoContainer() {
 
   const initialState = [
     {
-      // id: uuid.v4(),
       id: uuidv4(),
-      title: "Setup development environment",
-      completed: true,
+      listTitle: "To Do",
+      items: [
+        {
+          id: uuidv4(),
+          title: "Setup development environment",
+          completed: true,
+          description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
+        },
+        {
+          id: uuidv4(),
+          title: "Develop website and add content",
+          completed: false,
+          description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
+        },
+      ]
     },
     {
-      // id: uuid.v4(),
       id: uuidv4(),
-      title: "Develop website and add content",
-      completed: false,
+      listTitle: "In Progress",
+      items: [
+        {
+          id: uuidv4(),
+          title: "Setup development environment",
+          completed: true,
+          description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
+        },
+        {
+          id: uuidv4(),
+          title: "Develop website and add content",
+          completed: false,
+          description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
+        },
+      ]
     },
     {
-      // id: uuid.v4(),
       id: uuidv4(),
-      title: "Deploy to live server",
-      completed: false,
+      listTitle: "Done",
+      items: [
+        {
+          id: uuidv4(),
+          title: "Setup development environment",
+          completed: true,
+          description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
+        },
+        {
+          id: uuidv4(),
+          title: "Develop website and add content",
+          completed: false,
+          description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
+        },
+      ]
     },
   ]
-
   const [todos, setTodos] = useState(initialState)
 
   const handleChange = (id) => {
-    setTodos(todos.map((todo) => {
-      if (todo.id === id) {
-        todo.completed = !todo.completed;
+
+    setTodos(todos.map((list) => {
+      const updatedItems = list.items.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed: !todo.completed }
+        };
+        return todo
+      });
+      return { ...list, items: updatedItems };
+    }))
+
+  };
+
+  const delTodo = (id, listId) => {
+
+    setTodos(todos.map((list) => {
+      if (list.id === listId) {
+        return {
+          ...list,
+          items: list.items.filter(todo => todo.id !== id),
+        }
       }
-      return todo;
-    }),);
+      return list
+    }))
   };
 
-  const delTodo = (id) => {
-    setTodos([
-      ...todos.filter((todo) => {
-        return todo.id !== id;
-      }),
-    ],
-    );
-  };
-
-  const addTodoItem = (title) => {
+  const addTodoItem = (title, description, listId) => {
     const newTodo = {
-      // id: uuid.v4(),
       id: uuidv4(),
       title: title,
       completed: false,
+      description: description
     };
-    setTodos([...todos, newTodo],
-    );
+
+    setTodos(todos.map((list) => {
+      if (list.id === listId) {
+        return { ...list, items: [...list.items, newTodo] };
+      }
+      return list
+    }))
+
   };
 
   // Drag & Drop functions
@@ -86,16 +136,7 @@ export default function TodoContainer() {
   return (
     <div className="container">
       <Header />
-      <InputTodo addTodoProps={addTodoItem} />
-      <TodosList
-        todos={todos}
-        handleChangeProps={handleChange}
-        deleteTodoProps={delTodo}
-        handleDrag={handleDrag}
-        handleDrop={handleDrop}
-        allowDrop={allowDrop}
-      />
-      <DragDropZone handleDrop={handleDrop} allowDrop={allowDrop} />
+      <DragDropZone handleDrop={handleDrop} allowDrop={allowDrop} lists={todos} handleChangeProps={handleChange} deleteTodoProps={delTodo} handleDrag={handleDrag} addTodoProps={addTodoItem} />
     </div>
   );
 

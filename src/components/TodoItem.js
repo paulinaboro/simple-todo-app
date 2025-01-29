@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TodoItem({ todo, handleChangeProps, deleteTodoProps, handleDrag }) {
+export default function TodoItem({ todo, handleChangeProps, deleteTodoProps, handleDrag, listId }) {
   const completedStyle = {
     fontStyle: "italic",
     color: "#d35e0f",
@@ -8,7 +8,7 @@ export default function TodoItem({ todo, handleChangeProps, deleteTodoProps, han
     textDecoration: "line-through"
   };
 
-  const { completed, id, title } = todo;
+  const { completed, id, title, description } = todo;
 
   return (
     <li data-testid="todo-item" className="todo-item" draggable={true} onDragStart={handleDrag} id={id}>
@@ -17,8 +17,9 @@ export default function TodoItem({ todo, handleChangeProps, deleteTodoProps, han
         checked={completed}
         onChange={() => handleChangeProps(id)}
       />
-      <button onClick={() => deleteTodoProps(id)}>Delete</button>
+      <button onClick={() => deleteTodoProps(id, listId)}>Delete</button>
       <span style={completed ? completedStyle : null}>{title}</span>
+      <textarea defaultValue={description} />
     </li>
   );
 }
