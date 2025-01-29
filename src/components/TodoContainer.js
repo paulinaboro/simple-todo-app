@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import TodosList from "./TodosList";
 import Header from "./Header";
-import InputTodos from "./InputTodo";
 import DragDropZone from "./DragDropZone/DragDropZone";
 // import uuid from "uuid";
 import { v4 as uuidv4 } from "uuid";
