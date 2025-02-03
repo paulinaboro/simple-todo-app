@@ -20,6 +20,8 @@ https://www.loom.com/share/da62a404f79e4bcfac9fc47d160e78fd
 - User can add a new todo 
 - User can remove a todo 
 - User can drag & drop tasks - implementation built in using native html drag & drop feature
+- Implemented Basic Cypress E2E Test
+- Basic implementation of integration and unit testing
 
 ### Installation
 
