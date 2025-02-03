@@ -1,4 +1,4 @@
-### Coding tssk to show my skills. ✅
+### Coding task to show my skills. ✅
 
 Create a copy of the trello app and chose 2 the most important features to implement. 
 
